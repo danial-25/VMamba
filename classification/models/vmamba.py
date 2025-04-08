@@ -682,7 +682,7 @@ class SS2Dv2:
         # ==============================
         **kwargs,
     ):
-        print(scan_mode)
+        # print(scan_mode)
         assert selective_scan_backend in [None, "oflex", "mamba", "torch"]
         _scan_mode = (
             dict(cross2d=0, unidi=1, bidi=2, cascade2d=-1).get(scan_mode, None)
@@ -934,7 +934,7 @@ class SS2Dv2:
         return y.to(x.dtype)
 
     def forwardv2(self, x: torch.Tensor, **kwargs):
-        print("yo")
+        # print("yo")
         x = self.in_proj(x)
         if not self.disable_z:
             x, z = x.chunk(2, dim=(1 if self.channel_first else -1))  # (b, h, w, d)
